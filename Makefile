@@ -1,33 +1,81 @@
-CC=cc
-CFLAGS=-Wall -Wextra -Werror
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: ljudd <ljudd@student.42.fr>                +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/04/24 09:37:05 by ljudd             #+#    #+#              #
+#    Updated: 2025/04/24 10:59:09 by ljudd            ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-SOURCES = ft_isalpha.c
+CC				= cc
+CFLAGS			= -Wall -Wextra -Werror
+LIB				= libft.a
+SOURCES			= ft_isalpha.c \
+	ft_isdigit.c \
+	ft_isalnum.c \
+	ft_isascii.c \
+	ft_isprint.c \
+	ft_strlen.c \
+	ft_memset.c \
+	ft_bzero.c \
+	ft_memcpy.c \
+	ft_memmove.c \
+	ft_strlcpy.c \
+	ft_strlcat.c \
+	ft_toupper.c \
+	ft_tolower.c \
+	ft_strchr.c \
+	ft_strrchr.c \
+	ft_strncmp.c \
+	ft_memchr.c \
+	ft_memcmp.c \
+	ft_strnstr.c \
+	ft_atoi.c \
+	ft_calloc.c \
+	ft_strdup.c \
+	ft_substr.c \
+	ft_strjoin.c \
+	ft_strtrim.c \
+	ft_split.c \
+	ft_itoa.c \
+	ft_strmapi.c \
+	ft_striteri.c \
+	ft_putchar_fd.c \
+	ft_putstr_fd.c \
+	ft_putendl_fd.c \
+	ft_putnbr_fd.c
+SOURCES_BONUS	= ft_lstnew.c \
+	ft_lstadd_front.c \
+	ft_lst_size.c \
+	ft_lstlast.c \
+	ft_lstadd_back.c \
+	ft_lstdelone.c \
+	ft_lstclear.c \
+	ft_lstiter.c \
+	ft_lstmap.c
+HEADER			= libft.h
+INCLUDES		= libft.h
+OBJECTS			= $(SOURCES:.c=.o)
+OBJECTS_BONUS	= $(SOURCES_BONUS:.c=.o)
 
-SOURCES_BONUS = ft_lstnew.c
+all: $(LIB)
 
-DEPS = libft.h
+$(LIB): $(OBJECTS)
+	ar rcs $(LIB) $(OBJECTS)
 
-PROG = libft.a
+%.o: %.c $(HEADER)
+	$(CC) $(CFLAGS) -I $(INCLUDES) -c $< -o $@
 
-OBJECTS = $(SOURCES:.c=.o)
+clean:
+	rm -f $(OBJECTS) $(OBJECTS_BONUS)
 
-OBJECTS_BONUS = $(SOURCES_BONUS:.c=.o)
+fclean: clean
+	rm -f $(LIB)
 
-all : $(PROG)
+re: fclean all
 
-clean :
-	rm -f $(OBJECTS)
-
-fclean : clean
-	rm -f $(PROG)
-
-re : fclean all
-
-bonus : $(OBJECTS_BONUS)
-	ar rcs $(DEPS) $<
-
-$(PROG) : $(OBJECTS)
-	ar rcs $@ $<
-
-.c.o :
-	$(CC) $(CFLAGS) $(HEADER) -c $< -o $*.o
+bonus: $(OBJECTS_BONUS)
+	ar rcs $(LIB) $(OBJECTS)
