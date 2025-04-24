@@ -6,15 +6,17 @@
 /*   By: ljudd <ljudd@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 10:44:43 by ljudd             #+#    #+#             */
-/*   Updated: 2025/04/24 10:58:35 by ljudd            ###   ########.fr       */
+/*   Updated: 2025/04/24 12:51:22 by ljudd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(int c)
+#include "libft.h"
+
+int	ft_isalnum(int c)
 {
 	if (c >= '0' && c <= '9')
 		return (1);
-	else if ((c >= 'a') || ())
+	else if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
 		return (1);
 	return (0);
 }
