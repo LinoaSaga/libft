@@ -6,7 +6,7 @@
 /*   By: ljudd <ljudd@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 13:08:27 by ljudd             #+#    #+#             */
-/*   Updated: 2025/04/24 13:35:18 by ljudd            ###   ########.fr       */
+/*   Updated: 2025/04/25 14:00:15 by ljudd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,13 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	size_t	k;
 
+	if (!dest && !src)
+		return (NULL);
 	if (src < dest)
 	{
-		k = n;
+		k = n + 1;
 		while (--k > 0)
-			((char *)dest)[k] = ((char *)src)[k];
+			((char *)dest)[k - 1] = ((char *)src)[k - 1];
 	}
 	else
 	{

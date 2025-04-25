@@ -6,13 +6,13 @@
 #    By: ljudd <ljudd@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/24 09:37:05 by ljudd             #+#    #+#              #
-#    Updated: 2025/04/24 10:59:09 by ljudd            ###   ########.fr        #
+#    Updated: 2025/04/25 10:28:53 by ljudd            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC				= cc
 CFLAGS			= -Wall -Wextra -Werror
-LIB				= libft.a
+NAME				= libft.a
 SOURCES			= ft_isalpha.c \
 	ft_isdigit.c \
 	ft_isalnum.c \
@@ -61,10 +61,10 @@ INCLUDES		= libft.h
 OBJECTS			= $(SOURCES:.c=.o)
 OBJECTS_BONUS	= $(SOURCES_BONUS:.c=.o)
 
-all: $(LIB)
+all: $(NAME)
 
-$(LIB): $(OBJECTS)
-	ar rcs $(LIB) $(OBJECTS)
+$(NAME): $(OBJECTS)
+	ar rcs $(NAME) $(OBJECTS)
 
 %.o: %.c $(HEADER)
 	$(CC) $(CFLAGS) -I $(INCLUDES) -c $< -o $@
@@ -73,9 +73,9 @@ clean:
 	rm -f $(OBJECTS) $(OBJECTS_BONUS)
 
 fclean: clean
-	rm -f $(LIB)
+	rm -f $(NAME)
 
 re: fclean all
 
 bonus: $(OBJECTS_BONUS)
-	ar rcs $(LIB) $(OBJECTS)
+	ar rcs $(NAME) $(OBJECTS)

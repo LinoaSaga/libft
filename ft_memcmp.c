@@ -6,7 +6,7 @@
 /*   By: ljudd <ljudd@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 16:37:16 by ljudd             #+#    #+#             */
-/*   Updated: 2025/04/24 17:00:14 by ljudd            ###   ########.fr       */
+/*   Updated: 2025/04/25 14:04:49 by ljudd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,10 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	src2 = (char *)s2;
 	while (++k < n)
 	{
-		if ((unsigned char)src1[k] != (unsigned char)src2[k])
+		if (src1[k] != src2[k])
 			return ((unsigned char)src1[k] - (unsigned char)src2[k]);
 	}
+	if (k == n)
+		return (0);
 	return ((unsigned char)src1[k] - (unsigned char)src2[k]);
 }

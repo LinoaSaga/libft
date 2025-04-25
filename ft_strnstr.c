@@ -6,7 +6,7 @@
 /*   By: ljudd <ljudd@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 17:00:33 by ljudd             #+#    #+#             */
-/*   Updated: 2025/04/24 17:10:37 by ljudd            ###   ########.fr       */
+/*   Updated: 2025/04/25 14:37:33 by ljudd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,10 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	while (big[i])
 	{
 		j = 0;
-		while (j < len && big[i + j] == little[j] && big[i + j] && little[j])
+		while ((i + j) < len && big[i + j] == little[j]
+			&& big[i + j] && little[j])
 			j++;
-		if (j == len)
+		if (!little[j])
 			return ((char *)&big[i]);
 		i++;
 	}
