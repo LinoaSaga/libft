@@ -6,7 +6,7 @@
 #    By: ljudd <ljudd@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/24 09:37:05 by ljudd             #+#    #+#              #
-#    Updated: 2025/04/25 10:28:53 by ljudd            ###   ########.fr        #
+#    Updated: 2025/04/28 13:26:10 by ljudd            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,7 @@ SOURCES			= ft_isalpha.c \
 	ft_putnbr_fd.c
 SOURCES_BONUS	= ft_lstnew.c \
 	ft_lstadd_front.c \
-	ft_lst_size.c \
+	ft_lstsize.c \
 	ft_lstlast.c \
 	ft_lstadd_back.c \
 	ft_lstdelone.c \
@@ -78,4 +78,4 @@ fclean: clean
 re: fclean all
 
 bonus: $(OBJECTS_BONUS)
-	ar rcs $(NAME) $(OBJECTS)
+	ar rcs $(NAME) $(OBJECTS_BONUS)
