@@ -6,7 +6,7 @@
 #    By: ljudd <ljudd@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/24 09:37:05 by ljudd             #+#    #+#              #
-#    Updated: 2025/04/28 15:32:31 by ljudd            ###   ########.fr        #
+#    Updated: 2025/04/29 15:05:13 by ljudd            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,3 +79,5 @@ re: fclean all
 
 bonus: $(OBJECTS_BONUS)
 	ar rcs $(NAME) $(OBJECTS_BONUS)
+
+.PHONY: all clean fclean re
