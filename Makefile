@@ -6,7 +6,7 @@
 #    By: ljudd <ljudd@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/24 09:37:05 by ljudd             #+#    #+#              #
-#    Updated: 2025/06/02 14:55:28 by ljudd            ###   ########.fr        #
+#    Updated: 2025/06/02 16:09:53 by ljudd            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ SOURCES			= ft_isalpha.c \
 	ft_tolower.c \
 	ft_strchr.c \
 	ft_strrchr.c \
+	ft_strcmp.c \
 	ft_strncmp.c \
 	ft_memchr.c \
 	ft_memcmp.c \
