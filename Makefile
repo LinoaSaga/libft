@@ -6,7 +6,7 @@
 #    By: ljudd <ljudd@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/24 09:37:05 by ljudd             #+#    #+#              #
-#    Updated: 2025/04/29 15:06:43 by ljudd            ###   ########.fr        #
+#    Updated: 2025/06/02 14:55:28 by ljudd            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,23 +61,36 @@ INCLUDES		= libft.h
 OBJECTS			= $(SOURCES:.c=.o)
 OBJECTS_BONUS	= $(SOURCES_BONUS:.c=.o)
 
+# Colors for display
+RED				= \e[31m
+GREEN			= \e[32m
+YELLOW			= \e[33m
+BLUE			= \e[34m
+MAGENTA			= \e[35m
+CYAN			= \e[36m
+RESET			= \e[m
+
 all: $(NAME)
 
-$(NAME): $(OBJECTS)
-	ar rcs $(NAME) $(OBJECTS)
+$(NAME): $(OBJECTS) $(OBJECTS_BONUS)
+	@printf "$(BLUE)%s$(RESET): $(YELLOW)Building $(NAME)...$(RESET)\n" $(NAME)
+	@ar rcs $(NAME) $(OBJECTS) $(OBJECTS_BONUS)
+	@printf "$(BLUE)%s$(RESET): $(GREEN)Successfully built $(NAME)$(RESET)\n" $(NAME)
 
 %.o: %.c $(HEADER)
-	$(CC) $(CFLAGS) -I $(INCLUDES) -c $< -o $@
+	@printf "$(BLUE)%s$(RESET): $(MAGENTA)Compiling$(RESET) $<\n" $(NAME)
+	@$(CC) $(CFLAGS) -I $(INCLUDES) -c $< -o $@
 
 clean:
-	rm -f $(OBJECTS) $(OBJECTS_BONUS)
+	@printf "$(BLUE)%s$(RESET): $(RED)Cleaning object files...$(RESET)\n" $(NAME)
+	@rm -f $(OBJECTS) $(OBJECTS_BONUS)
 
 fclean: clean
-	rm -f $(NAME)
+	@printf "$(BLUE)%s$(RESET): $(RED)Full clean...$(RESET)\n" $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 
-bonus: $(OBJECTS_BONUS)
-	ar rcs $(NAME) $(OBJECTS_BONUS)
+bonus: all
 
 .PHONY: all clean fclean re bonus
