@@ -6,7 +6,7 @@
 /*   By: ljudd <ljudd@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 09:12:10 by ljudd             #+#    #+#             */
-/*   Updated: 2025/06/02 19:14:54 by ljudd            ###   ########.fr       */
+/*   Updated: 2025/06/03 11:45:39 by ljudd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <stddef.h>
 # include <unistd.h>
+# include "ft_printf.h"
 
 /* PART 1 */
 int		ft_isalpha(int c);
