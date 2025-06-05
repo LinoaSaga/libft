@@ -6,7 +6,7 @@
 #    By: ljudd <ljudd@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/24 09:37:05 by ljudd             #+#    #+#              #
-#    Updated: 2025/06/03 11:46:31 by ljudd            ###   ########.fr        #
+#    Updated: 2025/06/05 16:17:14 by ljudd            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,7 +61,8 @@ SOURCES			= ft_isalpha.c \
 	ft_printf_convu.c \
 	ft_printf_convxl.c \
 	ft_printf_convxu.c \
-	ft_printf_convpct.c
+	ft_printf_convpct.c \
+	ft_printf_convf.c
 SOURCES_BONUS	= ft_lstnew_bonus.c \
 	ft_lstadd_front_bonus.c \
 	ft_lstsize_bonus.c \

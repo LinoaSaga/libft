@@ -6,7 +6,7 @@
 /*   By: ljudd <ljudd@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 12:01:21 by ljudd             #+#    #+#             */
-/*   Updated: 2025/06/03 11:46:07 by ljudd            ###   ########.fr       */
+/*   Updated: 2025/06/05 16:03:55 by ljudd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ char	ft_printf_isconv(const char **s)
 		return (1);
 	else if (**s == '%')
 		return (1);
+	else if (**s == 'f')
+		return (1);
 	return (0);
 }
 
@@ -63,6 +65,8 @@ void	(*ft_printf_getconv(const char **s))(va_list *a, int *b, t_printf c)
 		f = &ft_printf_writexu;
 	else if (**s == '%')
 		f = &ft_printf_writepct;
+	else if (**s == 'f')
+		f = &ft_printf_writef;
 	(*s)++;
 	return (f);
 }
