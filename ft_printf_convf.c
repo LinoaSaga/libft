@@ -6,7 +6,7 @@
 /*   By: ljudd <ljudd@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 14:11:33 by ljudd             #+#    #+#             */
-/*   Updated: 2025/06/06 11:50:56 by ljudd            ###   ########.fr       */
+/*   Updated: 2025/06/06 14:02:34 by ljudd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,14 @@
 */
 static void	ft_printf_putf_int(double d, int *n_print, char *digits)
 {
+	int	int_part;
+
+	int_part = (int) d % 10;
+	if (int_part < 0)
+		int_part += 10;
 	if (d > 9)
 		ft_printf_putf_int(d / 10, n_print, digits);
-	ft_printf_putchar(digits[(int) d % 10], n_print);
+	ft_printf_putchar(digits[int_part], n_print);
 }
 
 /* ft_printf_putf_int :
@@ -36,7 +41,9 @@ static void	ft_printf_putf_dec(double d, int *n_print, char *digits)
 	d *= 10;
 	while (d != 0 && n < 6)
 	{
-		int_part = (int) d;
+		int_part = (int) d % 10;
+		if (int_part < 0)
+			int_part += 10;
 		ft_printf_putchar(digits[int_part], n_print);
 		d = d - int_part;
 		d *= 10;
