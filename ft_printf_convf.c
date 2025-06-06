@@ -6,7 +6,7 @@
 /*   By: ljudd <ljudd@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 14:11:33 by ljudd             #+#    #+#             */
-/*   Updated: 2025/06/05 16:59:42 by ljudd            ###   ########.fr       */
+/*   Updated: 2025/06/06 11:50:56 by ljudd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,11 @@ void	ft_printf_writef(va_list *args, int *n_print, t_printf to_print)
 
 	(void) to_print;
 	d = va_arg(*args, double);
+	if (d < -1000000000 || d > 1000000000)
+	{
+		ft_printf_putstrc("Nan", n_print);
+		return ;
+	}
 	if (d < 0)
 	{
 		ft_printf_putchar('-', n_print);
