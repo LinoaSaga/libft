@@ -6,7 +6,7 @@
 /*   By: ljudd <ljudd@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 08:39:15 by ljudd             #+#    #+#             */
-/*   Updated: 2025/06/03 11:45:58 by ljudd            ###   ########.fr       */
+/*   Updated: 2025/06/16 14:08:30 by ljudd            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,14 @@ static void	ft_printf_put0d(unsigned int nb, int *n_print, t_printf to_print)
 	}
 	n_zero = to_print.precision - size;
 	if (n_zero > 0)
-		ft_printf_putcharn('0', n_print, n_zero);
+		ft_printf_putcharn(to_print.fd, '0', n_print, n_zero);
 }
 
-static void	ft_printf_putd(unsigned int nb, int *n_print, char *digits)
+static void	ft_printf_putd(int fd, unsigned int nb, int *n_print, char *digits)
 {
 	if (nb > 9)
-		ft_printf_putd(nb / 10, n_print, digits);
-	ft_printf_putchar(digits[nb % 10], n_print);
+		ft_printf_putd(fd, nb / 10, n_print, digits);
+	ft_printf_putchar(fd, digits[nb % 10], n_print);
 }
 
 void	ft_printf_writeu(va_list *args, int *n_print, t_printf to_print)
@@ -61,12 +61,12 @@ void	ft_printf_writeu(va_list *args, int *n_print, t_printf to_print)
 	n_space = to_print.field_width - ft_printf_sized(nb, to_print);
 	if (!(to_print.flag_minus) && to_print.flag_0
 		&& to_print.precision == -1 && n_space > 0)
-		ft_printf_putcharn('0', n_print, n_space);
+		ft_printf_putcharn(to_print.fd, '0', n_print, n_space);
 	else if (!(to_print.flag_minus) && n_space > 0)
-		ft_printf_putcharn(' ', n_print, n_space);
+		ft_printf_putcharn(to_print.fd, ' ', n_print, n_space);
 	ft_printf_put0d(nb, n_print, to_print);
 	if (nb != 0 || to_print.precision != 0)
-		ft_printf_putd(nb, n_print, "0123456789");
+		ft_printf_putd(to_print.fd, nb, n_print, "0123456789");
 	if (to_print.flag_minus && n_space > 0)
-		ft_printf_putcharn(' ', n_print, n_space);
+		ft_printf_putcharn(to_print.fd, ' ', n_print, n_space);
 }
