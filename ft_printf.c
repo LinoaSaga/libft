@@ -66,10 +66,10 @@ int	ft_printf(const char *s, ...)
 		if (*s == '%')
 		{
 			s++;
-			ft_printf_core(0, &s, &args, &res);
+			ft_printf_core(1, &s, &args, &res);
 		}
 		else
-			ft_printf_putchar(0, *(s++), &res);
+			ft_printf_putchar(1, *(s++), &res);
 	}
 	va_end(args);
 	return (res);
