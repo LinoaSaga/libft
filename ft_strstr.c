@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ljudd <ljudd@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ocgraf <ocgraf@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 10:18:31 by ljudd             #+#    #+#             */
-/*   Updated: 2025/06/23 10:19:48 by ljudd            ###   ########.fr       */
+/*   Updated: 2025/08/29 11:34:51 by ocgraf           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,8 @@ char	*ft_strstr(char *str, char *to_find)
 {
 	int		k;
 	int		j;
-	char	*res;
 
 	k = -1;
-	res = NULL;
 	if (!to_find || !to_find[0])
 		return (str);
 	while (str[++k])
